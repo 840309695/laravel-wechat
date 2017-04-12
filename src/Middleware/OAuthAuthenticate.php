@@ -66,7 +66,7 @@ class OAuthAuthenticate
 
             session()->forget('wechat.oauth_user');
 
-            return $this->wechat->oauth->scopes($scopes)->redirect($request->fullUrl());
+            return $this->wechat->oauth->scopes($scopes)->redirect("http://mobile.bao.cn/mobile_api/".$_SERVER['REQUEST_URI']);
         }
 
         Event::fire(new WeChatUserAuthorized(session('wechat.oauth_user'), $isNewSession));
